@@ -1,21 +1,31 @@
 @import './vars';
+@import './slider';
 
-body {
-	margin: 0;
+html {
 	font-family: $fontFamily;
-	font-size: $baseFontSize;
+	font-size: $baseMobile !important; // overriding styled component reset
 	line-height: $baseLineHeight;
 	font-style: normal;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: auto;
+	@include tablet-portrait-up {
+		font-size: $baseTabletP !important;
+	}
+	@include tablet-landscape-up {
+		font-size: $baseTabletL !important;
+	}
+	@include desktop-up {
+		font-size: $baseDesktop !important;
+	}
 }
 
-.blue {
-	color: $blue;
+body {
+	margin: 0;
 }
 
-.black {
-	color: $black;
+.wrapper {
+	max-width: $siteMax;
+	margin: 0 auto;
 }
 
 a {
@@ -33,25 +43,29 @@ h6 {
 
 h2,
 .h2 {
-	font-size: 72px;
-	line-height: 80px;
+	font-size: 7.2rem;
+	line-height: 8rem;
 	letter-spacing: -0.02em;
 }
 
 h2,
 .h3 {
-	font-size: 56px;
-	line-height: 64px;
+	font-size: 5.6rem;
+	line-height: 6.4rem;
 	letter-spacing: -0.02em;
 }
 
 h5,
 .h5 {
 	font-weight: bold;
-	font-size: 21px;
-	line-height: 40px;
+	font-size: 3.15rem;
+	line-height: 6rem;
 	letter-spacing: -0.02em;
 	text-transform: uppercase;
+	@include tablet-landscape-up {
+		font-size: 2.1rem;
+		line-height: 4rem;
+	}
 }
 
 .btn,
@@ -60,14 +74,15 @@ button {
 	border: none;
 	cursor: pointer;
 	display: inline-block;
-
-	padding: 16px 40px;
-	background-color: $black;
-	color: $white;
-	font-size: 18px;
+	// custom styles
+	padding: 3.2rem 8rem;
+	color: $lightColor;
+	background-color: $baseColor;
+	font-size: 3rem;
 	font-family: $fontFamily;
-	line-height: 24px;
+	line-height: 2.4rem;
 	text-transform: uppercase;
+	opacity: 1;
 	transition: opacity 300ms ease-in-out;
 	&:hover {
 		opacity: 0.8;
@@ -75,66 +90,8 @@ button {
 	&:focus {
 		outline: 1px solid black;
 	}
-}
-
-.block.slider {
-	padding: 80px 0;
-	text-align: center;
-	.label {
-		@extend .h5;
-		margin-bottom: 40px;
-	}
-	.message,
-	.dash {
-		@extend .h2;
-	}
-	.attribution {
-		@extend .h3;
-	}
-	.slides {
-		width: 75%;
-		margin: 0 auto;
-	}
-	.slick-prev,
-	.slick-next {
-		top: 100px;
-		color: $black;
-		transform: none;
-		&:hover {
-			color: $black;
-		}
-		&:before {
-			font-family: $fontFamily;
-		}
-	}
-	.slick-dots {
-		position: relative;
-		bottom: 0;
-		margin: 54px 0 64px;
-		li,
-		button {
-			width: $dotSize;
-			height: $dotSize;
-		}
-		li {
-			margin: 0 12px;
-			&.slick-active {
-				button {
-					opacity: 1;
-				}
-			}
-		}
-		button {
-			background-color: $black;
-			opacity: 0.4;
-			border-radius: 50%;
-			&:hover {
-				opacity: 1;
-				transition: opacity 300ms ease-in-out;
-			}
-			&:before {
-				content: none;
-			}
-		}
+	@include tablet-landscape-up {
+		padding: 1.6rem 4rem;
+		font-size: 1.8rem;
 	}
 }

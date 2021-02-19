@@ -9,12 +9,11 @@ const App = () => {
 			<Reset />
 			<Carousel
 				input={data[0]}
-				quoteColor="black"
-				bgPosition="right"
+				blockStyle="style1"
 				buttonText="View All"
 				buttonLink="/"
 			/>
-			<Carousel input={data[1]} quoteColor="blue" bgPosition="left" />
+			<Carousel input={data[1]} blockStyle="style2" />
 		</>
 	);
 };

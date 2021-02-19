@@ -1,12 +1,59 @@
 // Colors
 $black: #000000;
 $white: #ffffff;
-$blue: #0E4EF3;
-$yellow: #F2D43A;
+$blue: #0e4ef3;
+$yellow: #f2d43a;
+
+$baseColor: $black;
+$lightColor: $white;
+$primaryColor: $blue;
+$secondaryColor: $yellow;
+
+// Sizes
+$baseMobile: 5px;
+$baseTabletP: 6px;
+$baseTabletL: 7px;
+$baseDesktop: 10px;
+$siteMax: 1400px;
+$dotSize: 1.6rem;
 
 // Type
-$fontFamily: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
-$baseFontSize: 18px;
 $baseLineHeight: 24px;
+$fontFamily: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia,
+	serif;
 
-$dotSize: 16px;
+// Outline
+$outline: 2px solid black;
+$outlineOffset: 5px;
+
+// Media Queries
+@mixin mobile-only {
+	@media (max-width: 599px) {
+		@content;
+	}
+}
+@mixin tablet-portrait-up {
+	@media (min-width: 600px) {
+		@content;
+	}
+}
+@mixin tablet-landscape-up {
+	@media (min-width: 900px) {
+		@content;
+	}
+}
+@mixin tablet-landscape-down {
+	@media (max-width: 899px) {
+		@content;
+	}
+}
+@mixin desktop-up {
+	@media (min-width: 1200px) {
+		@content;
+	}
+}
+@mixin big-desktop-up {
+	@media (min-width: 1800px) {
+		@content;
+	}
+}

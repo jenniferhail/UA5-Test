@@ -1,16 +1,17 @@
 import React from 'react';
 import Slider from 'react-slick';
-import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Button from './Button';
+import Slide from './Slide';
 
 const Carousel = ({
 	input: { section_title, quotes },
-	quoteColor,
-	bgPosition,
+	blockStyle,
 	buttonText,
 	buttonLink,
 }) => {
+	// Slider Settings
 	const settings = {
 		dots: true,
 		infinite: true,
@@ -21,33 +22,18 @@ const Carousel = ({
 		adaptiveHeight: true,
 	};
 	return (
-		<section className="block slider">
+		<section className={`block slider ${blockStyle}`}>
 			<div className="wrapper">
 				{section_title && <h1 className="label">{section_title}</h1>}
 				{quotes.length > 0 && (
 					<>
 						<Slider className="slides" {...settings}>
 							{quotes.map((quote, index) => {
-								const { message, attribution } = quote;
-								return (
-									<div key={index} className="slide">
-										<p className={`message ${quoteColor}`}>
-											{message}
-										</p>
-										<p className="dash">—</p>
-										<p className="attribution">
-											{attribution}
-										</p>
-									</div>
-								);
+								return <Slide key={index} input={quote} />;
 							})}
 						</Slider>
 						{buttonLink && (
-							<div className="btns">
-								<a href={buttonLink} className="btn">
-									{buttonText}
-								</a>
-							</div>
+							<Button url={buttonLink} text={buttonText} />
 						)}
 					</>
 				)}

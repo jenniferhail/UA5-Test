@@ -23,11 +23,17 @@
 		&:after {
 			right: 0;
 		}
+		.label {
+			font-weight: 700;
+		}
 	}
 	&.style2 {
 		&:after {
 			left: 0;
 			transform: scaleX(-1);
+		}
+		.label {
+			font-weight: 400;
 		}
 		.message {
 			color: $primaryColor;
@@ -49,7 +55,7 @@
 			left: 50%;
 			transform: translate(-50%, 0);
 			width: 6rem;
-			height: 0.2rem;
+			height: 2px;
 			margin: 4rem 0;
 			display: block;
 			background-color: $baseColor;

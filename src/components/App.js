@@ -1,25 +1,22 @@
-import logo from '../assets/logo.svg';
-import './App.scss';
+import React from 'react';
+import { Reset } from 'styled-reset';
+import Carousel from './Slider';
+import data from '../data/data.json';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	return (
+		<>
+			<Reset />
+			<Carousel
+				input={data[0]}
+				quoteColor="black"
+				bgPosition="right"
+				buttonText="View All"
+				buttonLink="/"
+			/>
+			<Carousel input={data[1]} quoteColor="blue" bgPosition="left" />
+		</>
+	);
+};
 
 export default App;

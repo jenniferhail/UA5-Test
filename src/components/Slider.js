@@ -7,7 +7,8 @@ import Slide from './Slide';
 
 const Carousel = ({
 	input: { section_title, quotes },
-	blockStyle,
+	bgPosition,
+	messageColor,
 	buttonText,
 	buttonLink,
 }) => {
@@ -22,14 +23,20 @@ const Carousel = ({
 		adaptiveHeight: true,
 	};
 	return (
-		<section className={`block slider ${blockStyle}`}>
+		<section className={`block slider ${bgPosition}`}>
 			<div className="wrapper">
 				{section_title && <h1 className="label">{section_title}</h1>}
 				{quotes.length > 0 && (
 					<>
 						<Slider className="slides" {...settings}>
 							{quotes.map((quote, index) => {
-								return <Slide key={index} input={quote} />;
+								return (
+									<Slide
+										key={index}
+										input={quote}
+										messageColor={messageColor}
+									/>
+								);
 							})}
 						</Slider>
 						{buttonLink && (
